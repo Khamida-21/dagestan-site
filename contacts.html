@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты — Дагестан.тур</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contacts">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40"><path d="M4 32 L13 14 L19 24 L26 8 L36 32 Z" fill="#C7A95E"/><circle cx="29" cy="11" r="2.4" fill="#2FA39B"/></svg>
+      Дагестан<span class="dot">.тур</span>
+    </a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav-links">
+      <a data-nav="home" href="index.html">Главная</a>
+      <a data-nav="history" href="history.html">История</a>
+      <a data-nav="tours" href="tours.html">Туры</a>
+      <a data-nav="interactive" href="interactive.html">Интерактив</a>
+      <a data-nav="places" href="places.html">Места</a>
+      <a data-nav="schedule" href="schedule.html">Расписание</a>
+      <a data-nav="news" href="news.html">Новые туры</a>
+      <a data-nav="articles" href="articles.html">Статьи</a>
+      <a data-nav="contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <a class="nav-cta" href="request.html">Оставить заявку</a>
+  </div>
+</header>
+<main class="page">
+<div class="section wrap">
+  <a class="back-btn" href="index.html">← На главную</a>
+  <span class="eyebrow">Связаться с нами</span>
+  <h2 class="h2">Контактные данные</h2>
+  <p class="lead" style="margin-bottom:36px">Напишите нам или задайте вопрос — всегда на связи.</p>
+  <div class="form-grid">
+    <div class="contact-side">
+      <div class="ci"><div class="ic">📞</div><div><b>+7 (8722) 00-00-00</b><span>Ежедневно 9:00–20:00 (МСК)</span></div></div>
+      <div class="ci"><div class="ic">✉️</div><div><b>hello@dagestan-tur.ru</b><span>Для заявок и сотрудничества</span></div></div>
+      <div class="ci"><div class="ic">📍</div><div><b>г. Махачкала</b><span>пр. Расула Гамзатова, 1, офис 12</span></div></div>
+      <div class="ci"><div class="ic">💬</div><div><b>Мессенджеры</b><span>Telegram / WhatsApp: @dagestan_tur</span></div></div>
+      <div class="ci"><div class="ic">🕐</div><div><b>Режим работы</b><span>Пн–Вс, 9:00–20:00</span></div></div>
+      <div style="margin-top:10px"><a class="btn btn-primary" href="request.html" onclick="track('Кнопка «Оставить заявку» (контакты)')">Оставить заявку на тур →</a></div>
+    </div>
+    <div class="form-card">
+      <div id="ct-form">
+        <h3 style="font-size:1.2rem;margin-bottom:18px">Напишите нам</h3>
+        <div class="frow"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
+        <div class="frow two"><div><label>Телефон</label><input type="tel" placeholder="+7 ___ ___ __ __"></div><div><label>Email</label><input type="email" placeholder="you@mail.ru"></div></div>
+        <div class="frow"><label>Сообщение</label><textarea placeholder="Ваш вопрос…"></textarea></div>
+        <button class="btn btn-primary btn-block" onclick="submitForm('ct-form','ct-ok','Отправка сообщения (контакты)')">Отправить сообщение →</button>
+      </div>
+      <div class="form-ok" id="ct-ok">
+        <div class="ok-i">✓</div>
+        <h3 style="margin-bottom:8px">Сообщение отправлено!</h3>
+        <p style="color:var(--ink-soft)">Мы ответим вам в ближайшее время. Спасибо за обращение.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg width="30" height="30" viewBox="0 0 40 40"><path d="M4 32 L13 14 L19 24 L26 8 L36 32 Z" fill="#C7A95E"/></svg>Дагестан.тур</div>
+        <p style="font-size:.9rem;max-width:300px">Интерактивный веб-ресурс для поддержки туризма в Республике Дагестан. Маршруты, культура и природа Кавказа.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="history.html">История</a><a href="tours.html">Туры</a>
+        <a href="interactive.html">Интерактив</a><a href="places.html">Места</a>
+      </div>
+      <div>
+        <h4>Информация</h4>
+        <a href="schedule.html">Расписание</a><a href="news.html">Новые туры</a>
+        <a href="articles.html">Статьи</a><a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+    <svg class="ornament" style="opacity:.4;margin-bottom:18px" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 Q15 0 30 13 T60 13 T90 13 T120 13 T150 13 T180 13 T210 13 T240 13 T270 13 T300 13 T330 13 T360 13 T390 13 T420 13 T450 13 T480 13 T510 13 T540 13 T570 13 T600 13 T630 13 T660 13 T690 13 T720 13 T750 13 T780 13 T810 13 T840 13 T870 13 T900 13 T930 13 T960 13 T990 13 T1020 13 T1050 13 T1080 13 T1110 13 T1140 13 T1170 13 T1200 13"/></svg>
+    <div class="foot-bottom"><span>© 2026 Дагестан.тур · Учебный проект</span><span>Сделано с заботой о горах и море</span></div>
+  </div>
+</footer>
+<button class="an-fab" onclick="toggleAnalytics()">📊 Аналитика <span class="badge" id="an-badge">0</span></button>
+<div class="an-panel" id="an-panel">
+  <h4>Аналитика взаимодействий</h4>
+  <p class="ad">Счётчик кликов по интерактивным элементам — для анализа их эффективности. Данные сохраняются между страницами.</p>
+  <div class="an-list" id="an-list"></div>
+  <button class="an-reset" onclick="resetAnalytics()">Сбросить статистику</button>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

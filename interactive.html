@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Интерактивные задачи — Дагестан.тур</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="interactive">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40"><path d="M4 32 L13 14 L19 24 L26 8 L36 32 Z" fill="#C7A95E"/><circle cx="29" cy="11" r="2.4" fill="#2FA39B"/></svg>
+      Дагестан<span class="dot">.тур</span>
+    </a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav-links">
+      <a data-nav="home" href="index.html">Главная</a>
+      <a data-nav="history" href="history.html">История</a>
+      <a data-nav="tours" href="tours.html">Туры</a>
+      <a data-nav="interactive" href="interactive.html">Интерактив</a>
+      <a data-nav="places" href="places.html">Места</a>
+      <a data-nav="schedule" href="schedule.html">Расписание</a>
+      <a data-nav="news" href="news.html">Новые туры</a>
+      <a data-nav="articles" href="articles.html">Статьи</a>
+      <a data-nav="contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <a class="nav-cta" href="request.html">Оставить заявку</a>
+  </div>
+</header>
+<main class="page">
+<div class="section wrap">
+  <a class="back-btn" href="index.html">← На главную</a>
+  <span class="eyebrow">Спланируйте поездку сами</span>
+  <h2 class="h2">Интерактивные задачи для туристов</h2>
+  <p class="lead" style="margin-bottom:30px">Четыре инструмента, чтобы собрать поездку под себя. Все взаимодействия учитываются в панели аналитики.</p>
+  <div class="task-tabs">
+    <button class="task-tab active" data-task="route" onclick="openTask('route')"><span class="ti">🧭</span> Выбор маршрута</button>
+    <button class="task-tab" data-task="budget" onclick="openTask('budget')"><span class="ti">💰</span> Планирование бюджета</button>
+    <button class="task-tab" data-task="culture" onclick="openTask('culture')"><span class="ti">🏺</span> Изучение культуры</button>
+    <button class="task-tab" data-task="activity" onclick="openTask('activity')"><span class="ti">🎯</span> Поиск активностей</button>
+  </div>
+
+  <div class="task-panel active" id="task-route">
+    <h3>Выбор маршрута</h3>
+    <p class="hint">Ответьте на три вопроса — подберём подходящий тур.</p>
+    <div class="q"><div class="qt">1. Что вам важнее в поездке?</div>
+      <div class="opts" data-q="q1">
+        <button class="opt" onclick="pick(this,'q1','history')">Древняя история и города</button>
+        <button class="opt" onclick="pick(this,'q1','mountains')">Горы и природа</button>
+        <button class="opt" onclick="pick(this,'q1','food')">Местная кухня</button>
+      </div></div>
+    <div class="q"><div class="qt">2. Какой темп вам ближе?</div>
+      <div class="opts" data-q="q2">
+        <button class="opt" onclick="pick(this,'q2','calm')">Спокойный, без нагрузок</button>
+        <button class="opt" onclick="pick(this,'q2','mid')">Средний</button>
+        <button class="opt" onclick="pick(this,'q2','active')">Активный, треккинг</button>
+      </div></div>
+    <div class="q"><div class="qt">3. Сколько дней есть в запасе?</div>
+      <div class="opts" data-q="q3">
+        <button class="opt" onclick="pick(this,'q3','s')">2–3 дня</button>
+        <button class="opt" onclick="pick(this,'q3','m')">4–5 дней</button>
+        <button class="opt" onclick="pick(this,'q3','l')">6+ дней</button>
+      </div></div>
+    <button class="btn btn-primary" onclick="calcRoute()">Подобрать тур →</button>
+    <div class="result-box" id="route-result">
+      <h4 id="rr-title"></h4><p id="rr-text"></p>
+      <a class="btn btn-ghost" id="rr-btn" href="#">Открыть тур →</a>
+    </div>
+  </div>
+
+  <div class="task-panel" id="task-budget">
+    <h3>Планирование бюджета</h3>
+    <p class="hint">Двигайте параметры — итоговая сумма пересчитывается мгновенно.</p>
+    <div class="budget-wrap">
+      <div>
+        <div class="field"><label>Количество дней: <span class="rangeval" id="b-days">5</span></label><input type="range" min="2" max="10" value="5" id="r-days" oninput="calcBudget()"></div>
+        <div class="field"><label>Количество человек: <span class="rangeval" id="b-people">2</span></label><input type="range" min="1" max="8" value="2" id="r-people" oninput="calcBudget()"></div>
+        <div class="field"><label>Уровень комфорта</label>
+          <div class="seg">
+            <button class="on" data-v="3500" onclick="segPick(this,'comfort')">Эконом</button>
+            <button data-v="6500" onclick="segPick(this,'comfort')">Комфорт</button>
+            <button data-v="12000" onclick="segPick(this,'comfort')">Премиум</button>
+          </div></div>
+        <div class="field"><label>Транспорт</label>
+          <div class="seg">
+            <button class="on" data-v="0" onclick="segPick(this,'transport')">Групповой трансфер</button>
+            <button data-v="2000" onclick="segPick(this,'transport')">Аренда авто</button>
+            <button data-v="3500" onclick="segPick(this,'transport')">Личный водитель</button>
+          </div></div>
+        <div class="field"><label>Дополнительно (на человека, разово)</label>
+          <div class="addon" data-v="3000" onclick="toggleAddon(this)"><span class="ck">✓</span> Джип-тур по Сулакскому каньону <span class="ap">3 000 ₽</span></div>
+          <div class="addon" data-v="1500" onclick="toggleAddon(this)"><span class="ck">✓</span> Катер по каньону <span class="ap">1 500 ₽</span></div>
+          <div class="addon" data-v="2500" onclick="toggleAddon(this)"><span class="ck">✓</span> Гастро-дегустация <span class="ap">2 500 ₽</span></div>
+          <div class="addon" data-v="4500" onclick="toggleAddon(this)"><span class="ck">✓</span> Полёт на параплане <span class="ap">4 500 ₽</span></div>
+        </div>
+      </div>
+      <div class="budget-out">
+        <div class="total" id="b-total">—</div>
+        <div class="perp" id="b-perp"></div>
+        <div class="budget-line"><span>Проживание и питание</span><b id="bl-base"></b></div>
+        <div class="budget-line"><span>Транспорт</span><b id="bl-transport"></b></div>
+        <div class="budget-line"><span>Доп. активности</span><b id="bl-addon"></b></div>
+        <a class="btn btn-primary btn-block" style="margin-top:18px" href="request.html" onclick="track('Кнопка «Оставить заявку» (бюджет)')">Оставить заявку →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-panel" id="task-culture">
+    <h3>Изучение культуры</h3>
+    <p class="hint">Нажмите на карточку, чтобы перевернуть и узнать факт о культуре Дагестана.</p>
+    <div class="grid g4" id="culture-grid"></div>
+  </div>
+
+  <div class="task-panel" id="task-activity">
+    <h3>Поиск активностей</h3>
+    <p class="hint">Выберите интересы — покажем подходящие активности.</p>
+    <div class="filters" id="act-filters">
+      <button class="fchip on" data-f="all" onclick="filterAct(this,'all')">Все</button>
+      <button class="fchip" data-f="mountains" onclick="filterAct(this,'mountains')">🏔 Горы</button>
+      <button class="fchip" data-f="sea" onclick="filterAct(this,'sea')">🌊 Море</button>
+      <button class="fchip" data-f="history" onclick="filterAct(this,'history')">🏛 История</button>
+      <button class="fchip" data-f="food" onclick="filterAct(this,'food')">🍽 Гастро</button>
+      <button class="fchip" data-f="extreme" onclick="filterAct(this,'extreme')">⚡ Экстрим</button>
+    </div>
+    <div id="act-list"></div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg width="30" height="30" viewBox="0 0 40 40"><path d="M4 32 L13 14 L19 24 L26 8 L36 32 Z" fill="#C7A95E"/></svg>Дагестан.тур</div>
+        <p style="font-size:.9rem;max-width:300px">Интерактивный веб-ресурс для поддержки туризма в Республике Дагестан. Маршруты, культура и природа Кавказа.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="history.html">История</a><a href="tours.html">Туры</a>
+        <a href="interactive.html">Интерактив</a><a href="places.html">Места</a>
+      </div>
+      <div>
+        <h4>Информация</h4>
+        <a href="schedule.html">Расписание</a><a href="news.html">Новые туры</a>
+        <a href="articles.html">Статьи</a><a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+    <svg class="ornament" style="opacity:.4;margin-bottom:18px" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 Q15 0 30 13 T60 13 T90 13 T120 13 T150 13 T180 13 T210 13 T240 13 T270 13 T300 13 T330 13 T360 13 T390 13 T420 13 T450 13 T480 13 T510 13 T540 13 T570 13 T600 13 T630 13 T660 13 T690 13 T720 13 T750 13 T780 13 T810 13 T840 13 T870 13 T900 13 T930 13 T960 13 T990 13 T1020 13 T1050 13 T1080 13 T1110 13 T1140 13 T1170 13 T1200 13"/></svg>
+    <div class="foot-bottom"><span>© 2026 Дагестан.тур · Учебный проект</span><span>Сделано с заботой о горах и море</span></div>
+  </div>
+</footer>
+<button class="an-fab" onclick="toggleAnalytics()">📊 Аналитика <span class="badge" id="an-badge">0</span></button>
+<div class="an-panel" id="an-panel">
+  <h4>Аналитика взаимодействий</h4>
+  <p class="ad">Счётчик кликов по интерактивным элементам — для анализа их эффективности. Данные сохраняются между страницами.</p>
+  <div class="an-list" id="an-list"></div>
+  <button class="an-reset" onclick="resetAnalytics()">Сбросить статистику</button>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

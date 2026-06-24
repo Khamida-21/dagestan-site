@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статьи про Дагестан — Дагестан.тур</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="articles">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40"><path d="M4 32 L13 14 L19 24 L26 8 L36 32 Z" fill="#C7A95E"/><circle cx="29" cy="11" r="2.4" fill="#2FA39B"/></svg>
+      Дагестан<span class="dot">.тур</span>
+    </a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav-links">
+      <a data-nav="home" href="index.html">Главная</a>
+      <a data-nav="history" href="history.html">История</a>
+      <a data-nav="tours" href="tours.html">Туры</a>
+      <a data-nav="interactive" href="interactive.html">Интерактив</a>
+      <a data-nav="places" href="places.html">Места</a>
+      <a data-nav="schedule" href="schedule.html">Расписание</a>
+      <a data-nav="news" href="news.html">Новые туры</a>
+      <a data-nav="articles" href="articles.html">Статьи</a>
+      <a data-nav="contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <a class="nav-cta" href="request.html">Оставить заявку</a>
+  </div>
+</header>
+<main class="page">
+<div class="section wrap">
+  <a class="back-btn" href="index.html">← На главную</a>
+  <span class="eyebrow">Журнал</span>
+  <h2 class="h2">Статьи про Дагестан</h2>
+  <p class="lead" style="margin-bottom:36px">Истории, гайды и советы для путешественников.</p>
+  <div class="grid g3" id="articles-grid"></div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg width="30" height="30" viewBox="0 0 40 40"><path d="M4 32 L13 14 L19 24 L26 8 L36 32 Z" fill="#C7A95E"/></svg>Дагестан.тур</div>
+        <p style="font-size:.9rem;max-width:300px">Интерактивный веб-ресурс для поддержки туризма в Республике Дагестан. Маршруты, культура и природа Кавказа.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="history.html">История</a><a href="tours.html">Туры</a>
+        <a href="interactive.html">Интерактив</a><a href="places.html">Места</a>
+      </div>
+      <div>
+        <h4>Информация</h4>
+        <a href="schedule.html">Расписание</a><a href="news.html">Новые туры</a>
+        <a href="articles.html">Статьи</a><a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+    <svg class="ornament" style="opacity:.4;margin-bottom:18px" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 Q15 0 30 13 T60 13 T90 13 T120 13 T150 13 T180 13 T210 13 T240 13 T270 13 T300 13 T330 13 T360 13 T390 13 T420 13 T450 13 T480 13 T510 13 T540 13 T570 13 T600 13 T630 13 T660 13 T690 13 T720 13 T750 13 T780 13 T810 13 T840 13 T870 13 T900 13 T930 13 T960 13 T990 13 T1020 13 T1050 13 T1080 13 T1110 13 T1140 13 T1170 13 T1200 13"/></svg>
+    <div class="foot-bottom"><span>© 2026 Дагестан.тур · Учебный проект</span><span>Сделано с заботой о горах и море</span></div>
+  </div>
+</footer>
+<button class="an-fab" onclick="toggleAnalytics()">📊 Аналитика <span class="badge" id="an-badge">0</span></button>
+<div class="an-panel" id="an-panel">
+  <h4>Аналитика взаимодействий</h4>
+  <p class="ad">Счётчик кликов по интерактивным элементам — для анализа их эффективности. Данные сохраняются между страницами.</p>
+  <div class="an-list" id="an-list"></div>
+  <button class="an-reset" onclick="resetAnalytics()">Сбросить статистику</button>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
